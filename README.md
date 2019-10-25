@@ -14,11 +14,15 @@ The input `12 + 24` is broken into the number 12, a plus operator, and the numbe
 
 Whitespace is usually ignored by the lexer.
 
+The tokens are then passed on to the parser.
+
 ## Parser
 
 The parser analyzes the sequence of tokens to determine what is intended to happen and in what order.
 
 When the parser sees a number, followed by a plus operator, followed by another number, it passes on that the two numbers should be added together. In the case of a multiply operator added into the mix, the parser can determine that the two numbers next to the multiply operator should be multiplied first before the addition takes place.
+
+The result is then pased on to the interpreter.
 
 ## Interpreter
 
