@@ -1,4 +1,4 @@
-# Simple calculation interpreter
+# Simple math interpreter
 
 An interpreter that can evaluate simple calculations for learning how computers process human-readable text.
 
