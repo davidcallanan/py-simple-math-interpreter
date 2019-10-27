@@ -8,7 +8,7 @@ The user input is analyzed in two sections of code called the lexer and parser, 
 
 ## Lexer
 
-The lexer groups the input characters into small segments called tokens and identifies the type of each segment, similarly to how we group letters into words.
+The lexer groups the input characters into small segments called tokens and identifies the type of each token, similarly to how we group letters into words such as nouns and verbs.
 
 The characters in the input `12 + 24` are grouped into the tokens `NUMBER:12`, `PLUS`, and `NUMBER:24`.
 
@@ -18,11 +18,11 @@ The tokens are then passed on to the parser.
 
 ## Parser
 
-The parser analyzes the sequence of tokens to determine what is intended to happen and in what order, similarly to how we analyze the order of words in sentences to make sense of them.
+The parser analyzes the sequence of tokens to determine what is intended to happen and in what order, similarly to how we make sense of sentences based on the sequence and types of words.
 
 When the parser sees `NUMBER`, followed by `PLUS`, followed by `NUMBER`, it passes on that the two numbers should be added together. In the case of a multiply operation added into the mix, the parser can determine that the two numbers next to the multiply operator should be multiplied first before the addition takes place.
 
-The result is then pased on to the interpreter.
+The result, respresented as a tree, is then pased on to the interpreter.
 
 ## Interpreter
 
