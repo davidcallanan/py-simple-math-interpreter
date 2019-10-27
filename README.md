@@ -1,16 +1,16 @@
-# Simple math interpreter
+# Python - Simple Math Interpreter
 
-An interpreter that can evaluate simple calculations for learning how computers process human-readable text.
+An interpreter, written from scratch in Python, that can evaluate simple math calculations.
 
-This is a great first step to creating your own programming language, data language, and much more.
+This is useful for learning how computers process human-readable text and is a great first step to creating your own programming language, data language, etc.
 
 The user input is analyzed in two sections of code called the lexer and parser, before finally being interpreted by the interpreter.
 
 ## Lexer
 
-The lexer breaks up the input into small segments called tokens, similarly to how we break up sentences into words.
+The lexer groups the input characters into small segments called tokens and identifies the type of each segment, similarly to how we group letters into words.
 
-The input `12 + 24` is broken into the number 12, a plus operator, and the number 24.
+The characters in the input `12 + 24` are grouped into the tokens `NUMBER:12`, `PLUS`, and `NUMBER:24`.
 
 Whitespace is usually ignored by the lexer.
 
@@ -18,9 +18,9 @@ The tokens are then passed on to the parser.
 
 ## Parser
 
-The parser analyzes the sequence of tokens to determine what is intended to happen and in what order.
+The parser analyzes the sequence of tokens to determine what is intended to happen and in what order, similarly to how we analyze the order of words in sentences to make sense of them.
 
-When the parser sees a number, followed by a plus operator, followed by another number, it passes on that the two numbers should be added together. In the case of a multiply operator added into the mix, the parser can determine that the two numbers next to the multiply operator should be multiplied first before the addition takes place.
+When the parser sees `NUMBER`, followed by `PLUS`, followed by `NUMBER`, it passes on that the two numbers should be added together. In the case of a multiply operation added into the mix, the parser can determine that the two numbers next to the multiply operator should be multiplied first before the addition takes place.
 
 The result is then pased on to the interpreter.
 
