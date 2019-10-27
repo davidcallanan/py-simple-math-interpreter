@@ -1,3 +1,6 @@
+from lexer import Lexer
+
 while True:
-	script = input("calc > ")
-	print(f"You entered: {script}")
+	text = input("calc > ")
+	lexer = Lexer(text)
+	print(list(lexer.generate_tokens()))
