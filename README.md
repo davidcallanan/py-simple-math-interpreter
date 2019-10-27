@@ -28,4 +28,8 @@ The result, respresented as a tree, is then pased on to the interpreter.
 
 The interpeter simply does what's intended according to the parser's results, and contains the code for all the different math operations.
 
-The interpeter could be swapped out for a compiler which generates machine-readable code that your computer can later execute, or could be swapped out for a transpiler which generates code for another language. 
+The interpeter could be swapped out for a compiler which generates machine-readable code that your computer can later execute, or could be swapped out for a transpiler which generates code for another language.
+
+# Running the Program
+
+Todo.
