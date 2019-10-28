@@ -1,6 +1,13 @@
 from lexer import Lexer
+import imp; Parser = imp.load_source('.', 'parser.py').Parser
 
 while True:
-	text = input("calc > ")
-	lexer = Lexer(text)
-	print(list(lexer.generate_tokens()))
+	try:
+		text = input("calc > ")
+		lexer = Lexer(text)
+		tokens = lexer.generate_tokens()
+		parser = Parser(tokens)
+		tree = parser.parse()
+		print(tree)
+	except Exception as e:
+		print(e)
