@@ -17,4 +17,3 @@ class TokenType(Enum):
 	MINUS     = 2
 	MULTIPLY  = 3
 	DIVIDE    = 4
-	EOF       = 5
