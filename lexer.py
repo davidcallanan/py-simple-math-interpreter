@@ -34,8 +34,9 @@ class Lexer:
 				self.advance()
 				yield Token(TokenType.DIVIDE)
 			else:
-				yield None
 				return
+		
+		yield Token(TokenType.EOF)
 
 	def generate_number(self):
 		decimal_point_count = 0

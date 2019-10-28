@@ -12,8 +12,9 @@ class Token:
 		return self.type.name + (f":{self.value}" if self.value != None else "")
 
 class TokenType(Enum):
-	NUMBER = 0
-	PLUS = 1
-	MINUS = 2
-	MULTIPLY = 3
-	DIVIDE = 4
+	NUMBER    = 0
+	PLUS      = 1
+	MINUS     = 2
+	MULTIPLY  = 3
+	DIVIDE    = 4
+	EOF       = 5
