@@ -36,3 +36,7 @@ Requirements:
  - [Python3](https://www.python.org/downloads/)
 
 Run: `$PYTHON3 main.py` where `$PYTHON3` should be replaced with your Python3 binary, often `python` or `python3` will do.
+
+Unit testing:
+
+ - `$PYTHON3 -m unittest lexer_test`
