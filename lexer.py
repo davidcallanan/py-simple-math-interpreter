@@ -33,6 +33,12 @@ class Lexer:
 			elif self.current_char == '/':
 				self.advance()
 				yield Token(TokenType.DIVIDE)
+			elif self.current_char == '(':
+				self.advance()
+				yield Token(TokenType.LPAREN)
+			elif self.current_char == ')':
+				self.advance()
+				yield Token(TokenType.RPAREN)
 			else:
 				raise Exception(f"Illegal character '{self.current_char}")
 
