@@ -17,6 +17,9 @@ class TestLexer(unittest.TestCase):
 		tokens = list(Lexer(".456").generate_tokens())
 		self.assertEqual(tokens, [Token(TokenType.NUMBER, 000.456)])
 
+		tokens = list(Lexer(".").generate_tokens())
+		self.assertEqual(tokens, [Token(TokenType.NUMBER, 000.000)])
+	
 	def test_operators(self):
 		tokens = list(Lexer("+-*/").generate_tokens())
 		self.assertEqual(tokens, [
