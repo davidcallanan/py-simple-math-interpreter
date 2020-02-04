@@ -16,6 +16,9 @@ class Parser:
 			self.current_token = None
 
 	def parse(self):
+		if self.current_token == None:
+			return None
+
 		result = self.expr()
 
 		if not self.current_token == None:

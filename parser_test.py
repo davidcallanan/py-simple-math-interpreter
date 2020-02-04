@@ -5,6 +5,11 @@ from nodes import *
 
 class TestParser(unittest.TestCase):
 
+	def test_empty(self):
+		tokens = []
+		node = Parser(tokens).parse()
+		self.assertEqual(node, None)
+
 	def test_number_node(self):
 		tokens = [Token(TokenType.NUMBER, 51.2)]
 		node = Parser(tokens).parse()
