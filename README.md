@@ -40,3 +40,4 @@ Run: `$PYTHON3 main.py` where `$PYTHON3` should be replaced with your Python3 bi
 Unit testing:
 
  - `$PYTHON3 -m unittest lexer_test`
+ - `$PYTHON3 -m unittest parser_test`

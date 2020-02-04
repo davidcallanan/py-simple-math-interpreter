@@ -56,7 +56,7 @@ class Parser:
 			self.advance()
 			result = self.expr()
 
-			if token.type != TokenType.RPAREN:
+			if self.current_token.type != TokenType.RPAREN:
 				self.raise_error()
 			
 			self.advance()

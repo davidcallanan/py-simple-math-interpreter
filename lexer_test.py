@@ -3,7 +3,7 @@ from tokens import Token, TokenType
 from lexer import Lexer
 
 class TestLexer(unittest.TestCase):
-
+	
 	def test_numbers(self):
 		tokens = list(Lexer("123").generate_tokens())
 		self.assertEqual(tokens, [Token(TokenType.NUMBER, 123.000)])
