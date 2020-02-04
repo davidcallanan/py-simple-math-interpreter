@@ -1,5 +1,5 @@
 from lexer import Lexer
-import imp; Parser = imp.load_source('.', 'parser.py').Parser
+from parser_ import Parser
 
 while True:
 	try:
