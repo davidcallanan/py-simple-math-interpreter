@@ -10,44 +10,47 @@ class TestParser(unittest.TestCase):
 		node = Parser(tokens).parse()
 		self.assertEqual(node, None)
 
-	def test_number_node(self):
+	def test_numbers(self):
 		tokens = [Token(TokenType.NUMBER, 51.2)]
 		node = Parser(tokens).parse()
-		self.assertIsInstance(node, NumberNode)
-		self.assertEqual(node.value, 51.2)
+		self.assertEqual(node, NumberNode(51.2))
 
-	def test_operator_nodes(self):
-		tokens = [Token(TokenType.NUMBER, 27), Token(TokenType.PLUS), Token(TokenType.NUMBER, 14)]
+	def test_single_operations(self):
+		tokens = [
+			Token(TokenType.NUMBER, 27),
+			Token(TokenType.PLUS),
+			Token(TokenType.NUMBER, 14),
+		]
+
 		node = Parser(tokens).parse()
-		self.assertIsInstance(node, AddNode)
-		self.assertIsInstance(node.node_a, NumberNode)
-		self.assertIsInstance(node.node_b, NumberNode)
-		self.assertEqual(node.node_a.value, 27)
-		self.assertEqual(node.node_b.value, 14)
+		self.assertEqual(node, AddNode(NumberNode(27), NumberNode(14)))
 		
-		tokens = [Token(TokenType.NUMBER, 27), Token(TokenType.MINUS), Token(TokenType.NUMBER, 14)]
+		tokens = [
+			Token(TokenType.NUMBER, 27),
+			Token(TokenType.MINUS),
+			Token(TokenType.NUMBER, 14),
+		]
+
 		node = Parser(tokens).parse()
-		self.assertIsInstance(node, SubtractNode)
-		self.assertIsInstance(node.node_a, NumberNode)
-		self.assertIsInstance(node.node_b, NumberNode)
-		self.assertEqual(node.node_a.value, 27)
-		self.assertEqual(node.node_b.value, 14)
-		
-		tokens = [Token(TokenType.NUMBER, 27), Token(TokenType.MULTIPLY), Token(TokenType.NUMBER, 14)]
+		self.assertEqual(node, SubtractNode(NumberNode(27), NumberNode(14)))
+			
+		tokens = [
+			Token(TokenType.NUMBER, 27),
+			Token(TokenType.MULTIPLY),
+			Token(TokenType.NUMBER, 14),
+		]
+
 		node = Parser(tokens).parse()
-		self.assertIsInstance(node, MultiplyNode)
-		self.assertIsInstance(node.node_a, NumberNode)
-		self.assertIsInstance(node.node_b, NumberNode)
-		self.assertEqual(node.node_a.value, 27)
-		self.assertEqual(node.node_b.value, 14)
-		
-		tokens = [Token(TokenType.NUMBER, 27), Token(TokenType.DIVIDE), Token(TokenType.NUMBER, 14)]
+		self.assertEqual(node, MultiplyNode(NumberNode(27), NumberNode(14)))
+			
+		tokens = [
+			Token(TokenType.NUMBER, 27),
+			Token(TokenType.DIVIDE),
+			Token(TokenType.NUMBER, 14),
+		]
+
 		node = Parser(tokens).parse()
-		self.assertIsInstance(node, DivideNode)
-		self.assertIsInstance(node.node_a, NumberNode)
-		self.assertIsInstance(node.node_b, NumberNode)
-		self.assertEqual(node.node_a.value, 27)
-		self.assertEqual(node.node_b.value, 14)
+		self.assertEqual(node, DivideNode(NumberNode(27), NumberNode(14)))
 
 	def test_full_expression(self):
 		tokens = [
@@ -65,19 +68,18 @@ class TestParser(unittest.TestCase):
 		]
 
 		node = Parser(tokens).parse()
-		self.assertIsInstance(node, AddNode)
-		self.assertIsInstance(node.node_a, NumberNode)
-		self.assertEqual(node.node_a.value, 27)
-		self.assertIsInstance(node.node_b, MultiplyNode)
-		self.assertIsInstance(node.node_b.node_a, SubtractNode)
-		self.assertIsInstance(node.node_b.node_a.node_a, DivideNode)
-		self.assertIsInstance(node.node_b.node_a.node_a.node_a, NumberNode)
-		self.assertEqual(node.node_b.node_a.node_a.node_a.value, 43)
-		self.assertIsInstance(node.node_b.node_a.node_a.node_b, NumberNode)
-		self.assertEqual(node.node_b.node_a.node_a.node_b.value, 36)
-		self.assertIsInstance(node.node_b.node_a.node_b, NumberNode)
-		self.assertEqual(node.node_b.node_a.node_b.value, 48)
-		self.assertIsInstance(node.node_b.node_b, NumberNode)
-		self.assertEqual(node.node_b.node_b.value, 51)
+		self.assertEqual(node, AddNode(
+			NumberNode(27),
+			MultiplyNode(
+				SubtractNode(
+					DivideNode(
+						NumberNode(43),
+						NumberNode(36)
+					),
+					NumberNode(48)
+				),
+				NumberNode(51)
+			)
+		))
 
 		# TODO: check syntax errors

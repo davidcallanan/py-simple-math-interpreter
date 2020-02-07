@@ -1,16 +1,5 @@
 from enum import Enum
-
-class Token:
-	def __init__(self, type, value=None):
-		self.type = type
-		self.value = value
-
-	def __eq__(self, other):
-		if not isinstance(other, Token): return False
-		return self.type == other.type and self.value == other.value
-	
-	def __repr__(self):
-		return self.type.name + (f":{self.value}" if self.value != None else "")
+from dataclasses import dataclass
 
 class TokenType(Enum):
 	NUMBER    = 0
@@ -20,3 +9,11 @@ class TokenType(Enum):
 	DIVIDE    = 4
 	LPAREN    = 5
 	RPAREN    = 6
+
+@dataclass
+class Token:
+	type: TokenType
+	value: any = None
+
+	def __repr__(self):
+		return self.type.name + (f":{self.value}" if self.value != None else "")

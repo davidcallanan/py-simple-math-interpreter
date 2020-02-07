@@ -1,52 +1,54 @@
+from dataclasses import dataclass
+
+@dataclass
 class NumberNode:
-	def __init__(self, value):
-		self.value = value
-	
+	value: any
+
 	def __repr__(self):
 		return f"{self.value}"
 
+@dataclass
 class AddNode:
-	def __init__(self, node_a, node_b):
-		self.node_a = node_a
-		self.node_b = node_b
+	node_a: any
+	node_b: any
 
 	def __repr__(self):
 		return f"({self.node_a}+{self.node_b})"
 
+@dataclass
 class SubtractNode:
-	def __init__(self, node_a, node_b):
-		self.node_a = node_a
-		self.node_b = node_b
+	node_a: any
+	node_b: any
 
 	def __repr__(self):
 		return f"({self.node_a}-{self.node_b})"
 
+@dataclass
 class MultiplyNode:
-	def __init__(self, node_a, node_b):
-		self.node_a = node_a
-		self.node_b = node_b
+	node_a: any
+	node_b: any
 
 	def __repr__(self):
 		return f"({self.node_a}*{self.node_b})"
 
+@dataclass
 class DivideNode:
-	def __init__(self, node_a, node_b):
-		self.node_a = node_a
-		self.node_b = node_b
+	node_a: any
+	node_b: any
 
 	def __repr__(self):
 		return f"({self.node_a}/{self.node_b})"
 
+@dataclass
 class PlusNode:
-	def __init__(self, node):
-		self.node = node
+	node: any
 
 	def __repr__(self):
 		return f"(+{self.node})"
 	
+@dataclass
 class MinusNode:
-	def __init__(self, node):
-		self.node = node
+	node: any
 
 	def __repr__(self):
 		return f"(-{self.node})"
