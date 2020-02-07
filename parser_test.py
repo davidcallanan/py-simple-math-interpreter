@@ -81,5 +81,3 @@ class TestParser(unittest.TestCase):
 				NumberNode(51)
 			)
 		))
-
-		# TODO: check syntax errors
