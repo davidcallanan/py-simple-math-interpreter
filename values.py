@@ -1,6 +1,8 @@
+from dataclasses import dataclass
+
+@dataclass
 class Number:
-	def __init__(self, value):
-		self.value = value
+	value: any
 	
 	def __repr__(self):
 		return f"{self.value}"
