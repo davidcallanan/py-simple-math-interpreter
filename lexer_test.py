@@ -37,10 +37,6 @@ class TestLexer(unittest.TestCase):
 			Token(TokenType.LPAREN),
 			Token(TokenType.RPAREN),
 		])
-
-	def test_illegal_characters(self):
-		with self.assertRaises(Exception):
-			list(Lexer("123 $ 456").generate_tokens())
 	
 	def test_all(self):
 		tokens = list(Lexer("27 + (43 / 36 - 48) * 51").generate_tokens())
