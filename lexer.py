@@ -18,7 +18,6 @@ class Lexer:
 		while self.current_char != None:
 			if self.current_char in WHITESPACE:
 				self.advance()
-				continue
 			elif self.current_char == '.' or self.current_char in DIGITS:
 				yield self.generate_number()
 			elif self.current_char == '+':
