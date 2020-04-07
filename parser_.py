@@ -21,7 +21,7 @@ class Parser:
 
 		result = self.expr()
 
-		if not self.current_token == None:
+		if self.current_token != None:
 			self.raise_error()
 
 		return result
